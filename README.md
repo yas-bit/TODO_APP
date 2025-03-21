@@ -18,18 +18,18 @@ A basic NestJS app to practice backend development with PostgreSQL and TypeORM. 
 ### 1. Clone the Repository
 ```bash
 git clone git@github.com:yas-bit/TODO_APP.git
-cd git@github.com:yas-bit/TODO_APP.git
+cd TODO_APP/todo
 ```
 ### 2. Install Dependencies
 
-```npm install -g @nestjs/cli```
-```npm install -g typeorm```
-```npm install @nestjs/typeorm typeorm pg @nestjs/jwt @nestjs/passport passport passport-jwt```
+```npm install```
+- install argon2
 
 ### 3. Set Up the Database
 **1.Create the Database:**
 ```sudo -u postgres psql```
 ```CREATE DATABASE todo_db;```
+connect to the database ``\c``
 
 **2.Create tables:**
 -- ```Create users table```
@@ -47,11 +47,16 @@ cd git@github.com:yas-bit/TODO_APP.git
   ```description TEXT,```
   ```user_id INT REFERENCES users(id) ON DELETE CASCADE```
 ```);```
-```\q```
+``\q``
+
+- **Note:**
+Instead of manually creating the database tables, you can define entities in TypeORM and use migrations to automatically generate and update the database schema. For example, you can create a `User` entity and a `Task` entity, then run `npm run migration:generate` and `npm run migration:run` to apply the changes to the database. This approach is more maintainable and aligns with TypeORM's best practices. For this project, I chose to manually create the tables for simplicity, but I plan to use migrations in future projects.
+
 **3.Update the .env File:**
 - Update the .env file with your JWT secret: ```JWT_SECRET=your_jwt_secret```
 
 ### 4.Start the server:
+``cd todo``
 ```npm run start```
 The server will start at http://localhost:3000.
 

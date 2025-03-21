@@ -19,13 +19,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         secretOrKey: configService.get('JWT_SECRET') || 'fallback-secret-key',
         });
     }
-    // This method is called when the token is valid. The returned object is attached to the request.user property, which can be used in controllers or guards.
-
     async validate(payload: {sub: number; email: string}) {
 		console.log(payload)
 		const user = await this.userRepository.findOne({
 			where: {
-				id: payload.sub // yeah sub is the id 
+				id: payload.sub
 			},
 		})
 
