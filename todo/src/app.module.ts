@@ -13,14 +13,15 @@ import { Todo } from './todo/todo.entity';
 	imports: [
 		ConfigModule.forRoot({ isGlobal: true }),
 		TypeOrmModule.forRoot({
+			// temporary hardcoded values for development purposes only
 			type: 'postgres',
 			host: 'localhost',
 			port: 5432,
 			username: 'postgres',
 			password: 'password',
 			database: 'todo_db',
-			entities: [User, Todo], // Include the User entity
-			synchronize: false, // Disable automatic schema synchronization
+			entities: [User, Todo],
+			synchronize: false,
 		}),
     	PassportModule.register({ defaultStrategy: 'jwt' }),
     	UserModule,
