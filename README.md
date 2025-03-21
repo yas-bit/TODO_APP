@@ -17,8 +17,8 @@ A basic NestJS app to practice backend development with PostgreSQL and TypeORM. 
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone git@github.com:yas-bit/TODO_APP.git
+cd git@github.com:yas-bit/TODO_APP.git
 ```
 ### 2. Install Dependencies
 
